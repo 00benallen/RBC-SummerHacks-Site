@@ -1,0 +1,12 @@
+.header-box {
+    border: 2px solid black;
+    height: 4em;
+}
+
+.header-button {
+    height: 3em;
+    width: 7em;
+    margin: 5px;
+    margin-top: 10px;
+    background-color: deepskyblue
+}

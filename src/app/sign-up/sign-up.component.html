@@ -1,0 +1,53 @@
+<div class="card">
+  <div class="container">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Apply to hack</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input [(ngModel)]="name" required placeholder="Full Name" class="apply-input">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <input [(ngModel)]="username" required placeholder="username" class="apply-input">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <input [(ngModel)]="password" required placeholder="password, minimum 8 characters" class="apply-input">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <input [(ngModel)]="degree" required placeholder="your degree of study" class="apply-input">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <input [(ngModel)]="skills" required placeholder="skills you bring to the hack, comma separated" class="apply-input">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="apply-button" (click)="addMember()" routerLink="/home">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card members-area">
+  <div class="container">
+    <div class="card-body">
+      <app-members [members]="members"></app-members>
+    </div>
+  </div>
+</div>

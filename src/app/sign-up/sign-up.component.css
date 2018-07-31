@@ -1,0 +1,23 @@
+.apply-input {
+    width: 25em;
+}
+
+.apply-button {
+    height: 3em;
+    width: 7em;
+    margin: 5px;
+    margin-top: 10px;
+    background-color: deepskyblue;
+    border: 2px solid powderblue
+}
+
+.card {
+    width: 30em;
+    margin: 4px;
+    display: inline-block;
+    vertical-align: top
+}
+
+.members-area {
+    float: right;
+}
