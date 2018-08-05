@@ -4,14 +4,15 @@ import { FormsModule }   from '@angular/forms';
 
 
 import { SignUpComponent } from './sign-up.component';
-import { MembersComponent } from './members/members.component';
+import { MembersModule } from '../members/members.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    MembersModule
   ],
-  declarations: [SignUpComponent, MembersComponent],
+  declarations: [SignUpComponent],
   exports: [SignUpComponent]
 })
 export class SignUpModule { }

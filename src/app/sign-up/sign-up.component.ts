@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Member } from './members/members.component';
+import { MembersService, Member } from '../state/state';
 
-const members: Member[] = [
-  {name: "Ben Pinhorn", degree: "Computer Science", skills: ["Java", "Angular", "C"]},
-  {name: "Mark Zucc", degree: "Facebook school of being the boss", skills: ["Drinking Water", "Smiling", "PHP :("]},
-  {name: "Rob James", degree: "Software Engineering", skills: ["Java", "Java", "Java"]},
-  {name: "Crystal Waters", degree: "Graphic Design", skills: ["Drawing", "Mockups", "Slides"]},
-  {name: "John Smith", degree: "undefined", skills: ["Arrays"]},
-]
+
 
 @Component({
   selector: 'app-sign-up',
@@ -21,11 +15,11 @@ export class SignUpComponent implements OnInit {
   password: string
   degree: string
   skills: string
-  members: Member[] = members.slice(0, 3)
 
-  constructor() { }
+  constructor(private membersService: MembersService) { }
 
   ngOnInit() {
+
   }
 
   addMember() {
@@ -34,14 +28,22 @@ export class SignUpComponent implements OnInit {
     newMember.degree = this.degree
     newMember.name = this.name
     newMember.skills = []
+
+    if(this.skills.endsWith(',')) {
+      this.skills = this.skills.substr(0, this.skills.length-2)
+    }
+
     let skillsArray = this.skills.split(',')
     for(var skill of skillsArray) {
       newMember.skills.push(skill.trim())
     }
 
-    let concatArray = [newMember]
+    this.membersService.addMember(newMember)
 
-    this.members = concatArray.concat(this.members)
+    this.degree = ''
+    this.name = ''
+    this.password = ''
+    this.username = ''
   }
 
 }

@@ -1,0 +1,19 @@
+<h3>Some members who've applied!</h3>
+<hr>
+<div *ngIf="members">
+  <div *ngFor="let member of members">
+    <p>
+      <strong>{{member.name}}</strong>
+    </p>
+    <p>
+      <strong>Degree: </strong>{{member.degree}}</p>
+    <div *ngFor="let skill of member.skills">
+      <p>
+        <strong>Skill: </strong>{{skill}}</p>
+    </div>
+    <hr>
+  </div>
+</div>
+<div *ngIf="!members">
+  You're first! Welcome to the hack
+</div>

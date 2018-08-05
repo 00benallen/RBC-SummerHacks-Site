@@ -1,0 +1,28 @@
+<div class='heading-line'>
+  <h1>RBC_Hacks | </h1>
+  <h2>Welcome to our dedicated site!</h2>
+</div>
+
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <img [src]="images[0]" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3>The future of banking</h3>
+      <p>Help us start a new era of banking</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[1]" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>Jumpstart your career</h3>
+      <p>Amazing jobs, we want your code in production ASAP</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[2]" alt="Random third slide">
+    <div class="carousel-caption">
+      <h3>Win real prizes</h3>
+      <p>Money, fun tech, come win some!</p>
+    </div>
+  </ng-template>
+</ngb-carousel>

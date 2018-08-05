@@ -1,12 +1,28 @@
 .header-box {
-    border: 2px solid black;
+    border: 1px solid darkgrey;
     height: 4em;
+    box-shadow: 3px;
 }
 
 .header-button {
     height: 3em;
     width: 7em;
-    margin: 5px;
-    margin-top: 10px;
-    background-color: deepskyblue
+    margin: 2px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    background-color: deepskyblue;
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.header-button:hover {
+    background-color: darkturquoise;
+    color: white;
+}
+
+.header-button[selected='true'] {
+    background-color: blue;
+    color: white;
 }
