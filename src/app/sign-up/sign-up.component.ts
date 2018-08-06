@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MembersService, Member } from '../state/state';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { User, UserService } from '../state/users';
 
 
 
@@ -16,29 +16,28 @@ export class SignUpComponent implements OnInit {
   degree: string
   skills: string
 
-  constructor(private membersService: MembersService) { }
+  users: User[]
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-
+    this.users = this.userService.users
   }
 
   addMember() {
 
-    let newMember = new Member()
-    newMember.degree = this.degree
-    newMember.name = this.name
-    newMember.skills = []
+    let newUser = new User(this.name, this.username, this.password, this.degree, [])
 
-    if(this.skills.endsWith(',')) {
-      this.skills = this.skills.substr(0, this.skills.length-2)
+    if (this.skills.endsWith(',')) {
+      this.skills = this.skills.substr(0, this.skills.length - 2)
     }
 
     let skillsArray = this.skills.split(',')
-    for(var skill of skillsArray) {
-      newMember.skills.push(skill.trim())
+    for (var skill of skillsArray) {
+      newUser.skills.push(skill.trim())
     }
 
-    this.membersService.addMember(newMember)
+    this.users = this.userService.addUser(newUser)
 
     this.degree = ''
     this.name = ''

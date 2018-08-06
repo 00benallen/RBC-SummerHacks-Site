@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="container">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h2>Apply to hack</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <input [(ngModel)]="username" required placeholder="username" class="apply-input">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <input [(ngModel)]="password" required placeholder="password, minimum 8 characters" class="apply-input">
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="apply-button" (click)="login()" routerLink="/home">Log in</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

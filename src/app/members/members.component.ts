@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
-import { Member, MembersService } from '../state/state';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../state/users';
 
 @Component({
   selector: 'app-members',
@@ -8,12 +8,13 @@ import { Member, MembersService } from '../state/state';
 })
 export class MembersComponent implements OnInit {
 
-  members: Member[]
+  @Input()
+  users: User[]
 
-  constructor(private memService: MembersService, private change: ChangeDetectorRef) { }
+  constructor() { }
 
-  ngOnInit() {
-    this.members = this.memService.members
+  ngOnInit() { 
+    console.log(this.users)
   }
 
 }

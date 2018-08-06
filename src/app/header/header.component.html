@@ -16,8 +16,14 @@
         </div>
         <div>
           <button
-          #applyButton 
+          *ngIf='showLoginButton'
+          #loginButton 
           (click)='onSelect(2)'
+          class="header-button" 
+          routerLink="/login">Log in</button>
+          <button
+          #applyButton 
+          (click)='onSelect(3)'
           class="header-button" 
           routerLink="/apply">Apply</button>
         </div>

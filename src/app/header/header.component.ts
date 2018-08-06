@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { UserService } from '../state/users';
 
 @Component({
   selector: 'app-header',
@@ -13,24 +14,32 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('teamsButton')
   teamsButton: ElementRef
 
+  @ViewChild('loginButton')
+  loginButton: ElementRef
+
   @ViewChild('applyButton')
   applyButton: ElementRef
 
   selectedTab: number
 
-  constructor() { }
+  showLoginButton: boolean
+
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    
   }
 
   ngAfterViewInit(): void {
-    //this.clearButtonSelect()
+    this.showLoginButton = !this.userService.loggedIn
+    this.clearButtonSelect()
     this.onSelect(0)
   }
 
   clearButtonSelect() {
     this.homeButton.nativeElement.setAttribute('selected', 'false')
     this.teamsButton.nativeElement.setAttribute('selected', 'false')
+    this.loginButton.nativeElement.setAttribute('selected', 'false')
     this.applyButton.nativeElement.setAttribute('selected', 'false')
   }
 
@@ -43,6 +52,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       console.log('selecting teams button')
       this.teamsButton.nativeElement.setAttribute('selected', 'true')
     } else if (tab === 2) {
+      console.log('selecting login button')
+      this.loginButton.nativeElement.setAttribute('selected', 'true')
+    } else if (tab === 3) {
       console.log('selecting apply button')
       this.applyButton.nativeElement.setAttribute('selected', 'true')
     } else {
